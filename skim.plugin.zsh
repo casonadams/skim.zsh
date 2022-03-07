@@ -191,11 +191,20 @@ skim_setup_using_openbsd \
 unset -f -m 'skim_setup_*'
 
 if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
-  if (( $+commands[fd] )); then
-    export SKIM_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
-  elif (( $+commands[rg] )); then
-    export SKIM_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
-  elif (( $+commands[ag] )); then
-    export SKIM_DEFAULT_COMMAND='ag -l --hidden -g "" --ignore .git'
-  fi
+  export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
+  export SKIM_CTRL_T_COMMAND="${SKIM_DEFAULT_COMMAND} --type file"
+  export SKIM_ALT_C_COMMAND="${SKIM_DEFAULT_COMMAND} --type directory"
+  export SKIM_DEFAULT_OPTIONS="\
+  --color=16 \
+  --reverse \
+  --inline-info \
+  --no-multi \
+  --preview-window=:hidden \
+  --preview '([[ -f {} ]] \
+    && (bat --style=numbers --color=always {} \
+    || cat {})) \
+    || ([[ -d {} ]] && (tree -C {} | less)) \
+    || echo {} 2> /dev/null | head -200' \
+  --bind '?:toggle-preview'
+  "
 fi
