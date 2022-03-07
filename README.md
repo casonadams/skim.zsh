@@ -34,12 +34,13 @@ Set default command to use when input is tty:
 ```zsh
 export SKIM_DEFAULT_COMMAND='<your skim default command>'
 ```
-
 If not set, the plugin will try to set it to these, in the order in which they're found:
 
 - [`fd`](https://github.com/sharkdp/fd)
 - [`rg`](https://github.com/BurntSushi/ripgrep)
 - [`ag`](https://github.com/ggreer/the_silver_searcher)
+
+The plugin default settings lets one toggle the preview window using `?`
 
 ### `DISABLE_SKIM_AUTO_COMPLETION`
 
