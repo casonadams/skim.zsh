@@ -192,8 +192,6 @@ unset -f -m 'skim_setup_*'
 
 if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
   export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
-  export SKIM_CTRL_T_COMMAND="${SKIM_DEFAULT_COMMAND} --type file"
-  export SKIM_ALT_C_COMMAND="${SKIM_DEFAULT_COMMAND} --type directory"
   export SKIM_DEFAULT_OPTIONS="\
   --color=16 \
   --reverse \
