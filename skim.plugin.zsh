@@ -199,6 +199,7 @@ if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
   --reverse \
   --inline-info \
   --no-multi \
+  --cycle \
   --preview-window=:hidden \
   --preview '([[ -f {} ]] \
     && (bat --style=numbers --color=always {} \
