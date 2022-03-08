@@ -181,6 +181,11 @@ Please add `export SKIM_BASE=/path/to/skim/install/dir` to your .zshrc
 EOF
 }
 
+# Key bindings
+if [[ -z "${SKIM_COLOR}" ]]; then
+    SKIM_COLOR="--color=16 --color=hl:247"
+fi
+
 skim_setup_using_openbsd \
   || skim_setup_using_debian \
   || skim_setup_using_opensuse \
@@ -193,7 +198,7 @@ unset -f -m 'skim_setup_*'
 if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
   export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
   export SKIM_DEFAULT_OPTIONS="\
-  --color=16 \
+  ${SKIM_COLOR} \
   --reverse \
   --inline-info \
   --no-multi \
