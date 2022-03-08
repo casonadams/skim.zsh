@@ -1,4 +1,4 @@
-# skim
+# skim.zsh
 
 This plugin tries to find [skim](https://github.com/lotabout/skim) based on where
 it's been installed, and enables its fuzzy auto-completion and key bindings.
