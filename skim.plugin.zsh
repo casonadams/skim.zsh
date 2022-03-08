@@ -190,8 +190,12 @@ skim_setup_using_openbsd \
 
 unset -f -m 'skim_setup_*'
 
+if [[ -z "$BAT_THEME" ]]; then
+  export BAT_THEME="ansi"
+fi
+
 if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
-  export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
+  export SKIM_DEFAULT_COMMAND="fd --type f || rg --files || find ."
   export SKIM_DEFAULT_OPTIONS="\
   --color=16 \
   --reverse \
