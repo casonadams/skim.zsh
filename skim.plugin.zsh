@@ -206,5 +206,6 @@ if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
   --tiebreak=index \
   --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))' \
   --bind '?:toggle-preview' \
+  --preview-window=right \
   "
 fi
