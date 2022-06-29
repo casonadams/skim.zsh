@@ -1,11 +1,11 @@
-# skim
+# skim.zsh
 
 This plugin tries to find [skim](https://github.com/lotabout/skim) based on where
 it's been installed, and enables its fuzzy auto-completion and key bindings.
 
 This plugin will not install `skim` for you.  This needs to be done before using.
 
-To use it, add `skim.zsh` to the plugins in your zshrc file the follow is an example using zinit:
+To use it, add `skim.zsh` to the plugins in your zshrc file. The following is an example using zinit:
 
 ```zsh
 zinit wait lucid for \
