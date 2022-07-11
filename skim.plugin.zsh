@@ -179,7 +179,7 @@ function skim_setup_using_cargo() {
   (( $+commands[sk] )) || return 1
 
   local completions="${_SKIM_DIR}/shell/completion.zsh"
-  local key-bindings="${_SKIM_DIR}/shell/key-bindings.zsh"
+  local key_bindings="${_SKIM_DIR}/shell/key-bindings.zsh"
 
   if [[ ! -f "$completions" || ! -f "$key_bindings" ]]; then
     return 1
