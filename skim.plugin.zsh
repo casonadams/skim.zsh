@@ -221,7 +221,8 @@ if [[ -z "$BAT_THEME" ]]; then
 fi
 
 if [[ -z "$FZF_PREVIEW_COMMAND" ]]; then
-  FZF_PREVIEW_COMMAND='([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))'
+  FZF_PREVIEW_COMMAND='([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) \
+    || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))'
 fi
 
 if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
@@ -232,9 +233,11 @@ if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
   --inline-info \
   --no-multi \
   --cycle \
-  --height ${SKIM_TMUX_HEIGHT:-40%} \
+  --height=${SKIM_TMUX_HEIGHT:-40%} \
   --tiebreak=index \
-  --bind '?:toggle-preview' \
-  --preview-window=right \
+  --bind='?:toggle-preview' \
+  --preview-window=:hidden \
+  --preview='([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) \
+    || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))' \
   "
 fi
