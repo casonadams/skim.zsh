@@ -236,6 +236,7 @@ if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
   --height=${SKIM_TMUX_HEIGHT:-40%} \
   --tiebreak=index \
   --bind '?:toggle-preview' \
+  --preview-window=:nohidden \
   --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))' \
   --preview-window=right \
   "
