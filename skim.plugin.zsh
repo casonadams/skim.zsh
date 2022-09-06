@@ -204,8 +204,8 @@ if [[ -z "$SKIM_DEFAULT_COMMAND" ]]; then
   --cycle \
   --height ${SKIM_TMUX_HEIGHT:-40%} \
   --tiebreak=index \
-  --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))' \
   --bind '?:toggle-preview' \
+  --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))' \
   --preview-window=right \
   "
 fi
