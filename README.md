@@ -8,7 +8,7 @@ This plugin will not install `skim` for you.  This needs to be done before using
 To use it, add `skim.zsh` to the plugins in your zshrc file. The following is an example using zinit:
 
 ```zsh
-zinit wait lucid for \
+zinit wait lucid light-mode for \
   OMZL::key-bindings.zsh \
   OMZL::history.zsh \
   OMZP::git \
@@ -36,6 +36,7 @@ Set default command to use when input is tty:
 ```zsh
 export SKIM_DEFAULT_COMMAND='<your skim default command>'
 ```
+
 If not set, the plugin will try to set it to these, in the order in which they're found:
 
 - [`fd`](https://github.com/sharkdp/fd)
@@ -58,4 +59,3 @@ Set whether to disable key bindings (CTRL-T, CTRL-R, ALT-C):
 ```zsh
 DISABLE_SKIM_KEY_BINDINGS="true"
 ```
-

@@ -35,6 +35,6 @@ if [[ -z "$SKIM_DEFAULT_OPTIONS" ]]; then
   --tiebreak=index \
   --bind '?:toggle-preview' \
   --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -L 2 -a -C {} | less || echo {} 2> /dev/null | head -200))' \
-  --preview-window=right \
+  --preview-window=:hidden \
   "
 fi
